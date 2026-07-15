@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test, expect} from '@playwright/test';
 
 test('First Playwright test with browser and page context',async ({browser})=>
   {
@@ -11,7 +11,7 @@ test('First Playwright test with browser and page context',async ({browser})=>
   }
 );
 
-test.only('second playwright test without browser and page context',async ({page})=> 
+test('second playwright test without browser and page context',async ({page})=> 
 {
     await page.goto('https://sparshyog.com/');
     await page.title().then((title) => {    
@@ -19,6 +19,6 @@ test.only('second playwright test without browser and page context',async ({page
     });
 
     expect(await page.title()).toBe('Yoga & Meditation Classes in Delhi NCR | Sparsh Yog');      
-    await page.waitForTimeout(5000); // to make the browser wait for 5 seconds before closing the page
+    await page.waitForTimeout(10000); // to make the browser wait for 5 seconds before closing the page
 }
 );
