@@ -4,19 +4,24 @@ export default defineConfig({
   testDir: './tests',
 
   use: {
-    browserName: 'chromium',
     trace: 'on-first-retry',
-     viewport: null,
+    viewport: null,
     launchOptions: {
       args: ['--start-maximized'],
-    }
+    },
   },
 
   projects: [
     {
       name: 'Chrome',
-      use: { ...devices['Desktop Chrome'] },
-      viewport: null,
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: null,
+        deviceScaleFactor: undefined, // remove conflicting property
+        launchOptions: {
+          args: ['--start-maximized'],
+        },
+      },
     },
   ],
 });
