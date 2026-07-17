@@ -4,14 +4,19 @@ export default defineConfig({
   testDir: './tests',
 
   use: {
-    browserName: 'firefox',
+    browserName: 'chromium',
     trace: 'on-first-retry',
+     viewport: null,
+    launchOptions: {
+      args: ['--start-maximized'],
+    }
   },
 
   projects: [
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: 'Chrome',
+      use: { ...devices['Desktop Chrome'] },
+      viewport: null,
     },
   ],
 });
