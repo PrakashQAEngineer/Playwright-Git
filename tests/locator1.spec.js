@@ -1,5 +1,4 @@
 import {test, expect} from '@playwright/test';
-
 test('this is my first locator practice', async({page})=>
      {
       await page.goto('https://rahulshettyacademy.com/loginpagePractise/',{waitUntil:'domcontentloaded', timeout: 60000});
@@ -15,3 +14,11 @@ test('this is my first locator practice', async({page})=>
       
      }
 );
+
+test('this is my second trim and split practice', async({page})=>
+{
+  await page.goto('https://rahulshettyacademy.com/loginpagePractise/',{waitUntil:'domcontentloaded', timeout: 60000});
+  const textusername = await page.locator("p[class*='text-white']").textContent();
+  //const username = textusername.split("and")[0].split("is")[1].trim();
+  console.log(textusername);
+});
